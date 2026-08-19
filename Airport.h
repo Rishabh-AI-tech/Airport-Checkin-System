@@ -8,7 +8,7 @@
 #include<algorithm>
 #include<queue>
 #include<condition_variable>
-#include<vector>
+#include<atomic>
 
 using namespace std::chrono;
 
@@ -30,6 +30,8 @@ class Airport{
     std::mutex coutMutex;
 
     bool airportClosed ;
+
+    std::atomic<int>processedPassangers{0};
 
     void counterWorker(int counterid);
 public:
