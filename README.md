@@ -17,6 +17,9 @@ A multithreaded C++ simulation of an airport check-in system where multiple pass
 - Multithreading
 - Mutex
 - Condition Variables
+- Atomics
+- lock_guard
+- unique_lock
 
 ## Project Structure
 
@@ -46,3 +49,5 @@ g++ main.cpp Airport.cpp -pthread -o airport
 - Multithreading
 - Synchronization
 - Thread Safety
+- Deadlock safety
+- Race condition prevention
