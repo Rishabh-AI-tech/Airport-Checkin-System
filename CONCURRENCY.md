@@ -48,4 +48,11 @@ counter2 = std::thread(&Airport::counterWorker, this, 2);
 counter3 = std::thread(&Airport::counterWorker, this, 3);
 counter4 = std::thread(&Airport::counterWorker, this, 4);
 
+10. Use of std::atomic
+To manage the shared variable processedPassangers amongst the four counters the std::atomic is used to avoid hassles due to the manual locking and unlocking of mutexes .
+
+# Why did i use std::atomic ?
+--> DeadLock prevention: Since the atomics do not acquire locks ,the code using them is free from deadlocks .
+--> Lock Free execution: since we do not have to use manual locking/unlocking our code remains Lock free . 
+
 
