@@ -40,6 +40,8 @@ void Airport::counterWorker(int counterid){
 
 		auto duration =  duration_cast<microseconds>(stopTime - startTime);
 
+		processedPassangers++;
+		
 		std::lock_guard<std::mutex>printlock(coutMutex);
 		std::cout<< "Counter ID : \t"<< counterid
 		<< " || Passenger ID : \t " << currentPassenger.id
