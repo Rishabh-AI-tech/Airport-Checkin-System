@@ -50,6 +50,13 @@ void Airport::counterWorker(int counterid){
 // Basically wait and sleep { !waitingPassengers.empty() ==> false} until there are no passengers.
 	}
 }
+void Airport::updateStatistics(){
+	std::lock(queueMutex,statsMutex);
+
+	std::lock_guard<std::mutex>LOCK1(queueMutex,std::adopt_lock);
+
+	std::lock_guard<std::mutex>LOCK2(statsMutex,std::adopt_lock);
+}
 void Airport::closeAirport(){
 	std::lock_guard<std::mutex>lock3(queueMutex);
     airportClosed = true;
