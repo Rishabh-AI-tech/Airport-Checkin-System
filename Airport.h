@@ -20,6 +20,8 @@ class Airport{
     private:
     std::queue<Passenger> waitingPassengers;
     std::mutex queueMutex;
+    std::mutex statsmutex;
+    int totalProcessingTime;
     std::condition_variable cv;
 
     std::thread counter1;
