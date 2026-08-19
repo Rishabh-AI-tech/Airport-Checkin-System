@@ -56,6 +56,8 @@ void Airport::updateStatistics(){
 	std::lock_guard<std::mutex>LOCK1(queueMutex,std::adopt_lock);
 
 	std::lock_guard<std::mutex>LOCK2(statsMutex,std::adopt_lock);
+
+	std::cout<< "|| The total processing time is "<< totalProcessingTime <<std::endl;
 }
 void Airport::closeAirport(){
 	std::lock_guard<std::mutex>lock3(queueMutex);
