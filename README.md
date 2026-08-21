@@ -51,3 +51,36 @@ g++ main.cpp Airport.cpp -pthread -o airport
 - Thread Safety
 - Deadlock safety
 - Race condition prevention
+
+- ## UML Class Diagram
+
+
+classDiagram
+
+struct Passenger{
+	id : int
+	arrivalTime : double
+}
+
+class Airport{
+	(-) waitingPassengers : std::queue<Passenger>
+	(-) queuemutex : std::mutex
+	(-) statsMutex : std::mutex
+	(-) totalProcessingTime : int
+	(-) cv : std::condition_variable
+	(-) counter1 : std::thread
+	(-) counter2 : std::thread
+	(-) counter3 : std::thread
+	(-) counter4 : std::thread
+	(-) coutMutex : std::mutex
+	(-) airportClosed : bool
+	(-) processedPassengers{0} : std::atomic<int>
+	(-) counterWorker(int counterid) ::void
+
+	(+) startCounters() : void
+  (+) updateStatistics() : void
+  (+) closeAirport(): void
+  (+) waitforCompletion() : void
+  (+) addPassenger(const Passenger& p) : void
+}
+
