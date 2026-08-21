@@ -54,6 +54,7 @@ g++ main.cpp Airport.cpp -pthread -o airport
 
 - ## UML Class Diagram
 
+```mermaid
 classDiagram
 
 class Airport {
@@ -69,7 +70,6 @@ class Airport {
     -coutMutex : std::mutex
     -airportClosed : bool
     -processedPassengers : std::atomic~int~
-
     -counterWorker(int counterid) : void
 
     +Airport() : void
@@ -78,4 +78,6 @@ class Airport {
     +closeAirport() : void
     +waitforCompletion() : void
     +addPassenger(const Passenger& p) : void
+}
+```er(const Passenger& p) : void
 }
