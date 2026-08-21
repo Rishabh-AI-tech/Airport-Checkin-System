@@ -74,7 +74,7 @@ class Airport{
 	(-) counter4 : std::thread
 	(-) coutMutex : std::mutex
 	(-) airportClosed : bool
-	(-) processedPassengers{0} : std::atomic<int>
+	(-) processedPassengers : std::atomic<int>
 	(-) counterWorker(int counterid) ::void
 
 	(+) startCounters() : void
