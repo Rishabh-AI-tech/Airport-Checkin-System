@@ -57,7 +57,8 @@ void Airport::updateStatistics(){
 
 	std::lock_guard<std::mutex>LOCK2(statsMutex,std::adopt_lock);
 
-	std::cout<< "|| The total processing time is "<< totalProcessingTime <<std::endl;
+	totalProcessingTime = duration.count();
+	processedPassangers++
 }
 void Airport::closeAirport(){
 	std::lock_guard<std::mutex>lock3(queueMutex);
@@ -74,6 +75,14 @@ void Airport::waitforCompletion(){
 	if(counter3.joinable()) counter3.join();
 
 	if(counter4.joinable()) counter4.join();
+
+	std::cout<< " || STATISTICS REPORT || \n";
+	std::cout<< " || Passengers processed  : \n"<< processedPassangers.load() << std::endl;
+    std::cout<< " || Total processing Time : \n"<< totalProcessingTime/100000.0 <<std::endl;
+    std::cout<< " || Average processing time : \n "<< totalProcessingTime.100000.0/processedPassangers.load()
+    << "seconds " <<std::endl;
+
+    std::cout<< " || ------------------ ||\n";
 	
 
 }
