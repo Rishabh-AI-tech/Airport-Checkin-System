@@ -21,7 +21,7 @@ class Airport{
     std::queue<Passenger> waitingPassengers;
     std::mutex queueMutex;
     std::mutex statsmutex;
-    int totalProcessingTime;
+    int totalProcessingTime = 0;
     std::condition_variable cv;
 
     std::thread counter1;
